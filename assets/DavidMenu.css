@@ -1,0 +1,553 @@
+/*===== DavidFullMenu v0.2 =====
+
+  use DavidFullMenu Function to 
+  make your own full screen menu!  
+
+===== DavidBackground sheet =====
+Grass, Chill, Sky, Rose, Autumn, Wine
+===== DavidBackground sheet =====
+moveUpMenu, moveDownMenu, appearMenu,
+popAppearMenu, FadeInMenu , slide    */
+ul,
+li,
+div {
+  padding: 0;
+  margin: 0;
+}
+.menu-container {
+  overflow: scroll;
+  position: fixed;
+  opacity: 0;
+  top: 0;
+  left: 0;
+  visibility: hidden;
+  width: 100%;
+  height: 100%;
+  transition: all 0.5s ease 0.35s;
+  z-index: 2;
+  background: #fff;
+}
+.menu-container.showOnMenu {
+  opacity: 1;
+  visibility: visible;
+  transition: all 0.5s ease 0.15s;
+}
+.menu-container nav {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  transition: all 0.6s ease;
+}
+.menu-container nav ul {
+  list-style: none;
+  text-align: center;
+}
+.menu-container nav ul li {
+  font-family: Raleway;
+  letter-spacing: 10px;
+  align-items: center;
+  line-height: 20vh;
+}
+.menu-container nav ul li a {
+  position: relative;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 2em;
+  color: #626360;
+}
+.menu-container nav ul li a transition all .35s ease {
+  opacity: 0;
+}
+.menu-container nav ul li a:before,
+.menu-container nav ul li a:after {
+  content: "";
+  position: absolute;
+  background-color: #f9c46a;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  transition: all 0.35s ease;
+}
+.menu-container nav ul li a:hover,
+.menu-container nav ul li a:focus {
+  transition: all 0.3s ease;
+  font-size: 2.4em;
+  color: #383937;
+}
+.menu-container nav ul li a:hover:before,
+.menu-container nav ul li a:focus:before,
+.menu-container nav ul li a:hover:after,
+.menu-container nav ul li a:focus:after {
+  transition: all 0.5s ease;
+  transform: scaleX(1);
+}
+.moveUpMenu {
+  opacity: 1;
+  transition: all 1s ease 0.3s;
+  animation: 1s moveup linear;
+}
+.moveDownMenu {
+  opacity: 1;
+  transition: all 1s ease 0.3s;
+  animation: 1s movedown linear;
+}
+.appearMenu {
+  opacity: 1;
+  transition: all 1s ease 0.3s;
+  animation: 1s appear linear;
+}
+.popAppearMenu {
+  opacity: 1;
+  transition: all 0.8s ease 0.3s;
+  animation: 1s pop linear;
+}
+.SlideInMenu {
+  opacity: 1;
+  transition: all 0.8s ease;
+}
+.SlideInMenu li {
+  opacity: 1;
+}
+.SlideInMenu li:nth-child(1) {
+  animation: 0.5s slided ease;
+  animation-fill-mode: both;
+  animation-delay: 0.25s;
+}
+.SlideInMenu li:nth-child(2) {
+  animation: 0.5s slided ease;
+  animation-fill-mode: both;
+  animation-delay: 0.5s;
+}
+.SlideInMenu li:nth-child(3) {
+  animation: 0.5s slided ease;
+  animation-fill-mode: both;
+  animation-delay: 0.75s;
+}
+.SlideInMenu li:nth-child(4) {
+  animation: 0.5s slided ease;
+  animation-fill-mode: both;
+  animation-delay: 1s;
+}
+.SlideInMenu li:nth-child(5) {
+  animation: 0.5s slided ease;
+  animation-fill-mode: both;
+  animation-delay: 1.25s;
+}
+.SlideInMenu li:nth-child(6) {
+  animation: 0.5s slided ease;
+  animation-fill-mode: both;
+  animation-delay: 1.5s;
+}
+.SlideInMenu li:nth-child(7) {
+  animation: 0.5s slided ease;
+  animation-fill-mode: both;
+  animation-delay: 1.75s;
+}
+.SlideInMenu li:nth-child(8) {
+  animation: 0.5s slided ease;
+  animation-fill-mode: both;
+  animation-delay: 2s;
+}
+.SlideInMenu li:nth-child(9) {
+  animation: 0.5s slided ease;
+  animation-fill-mode: both;
+  animation-delay: 2.25s;
+}
+.SlideInMenu li:nth-child(10) {
+  animation: 0.5s slided ease;
+  animation-fill-mode: both;
+  animation-delay: 2.5s;
+}
+.FadeInMenu {
+  opacity: 1;
+  transition: all 0.8s ease;
+}
+.FadeInMenu li {
+  opacity: 1;
+}
+.FadeInMenu li:nth-child(1) {
+  animation: 0.4s fadein linear;
+  animation-fill-mode: both;
+  animation-delay: 0.25s;
+}
+.FadeInMenu li:nth-child(2) {
+  animation: 0.4s fadein linear;
+  animation-fill-mode: both;
+  animation-delay: 0.5s;
+}
+.FadeInMenu li:nth-child(3) {
+  animation: 0.4s fadein linear;
+  animation-fill-mode: both;
+  animation-delay: 0.75s;
+}
+.FadeInMenu li:nth-child(4) {
+  animation: 0.4s fadein linear;
+  animation-fill-mode: both;
+  animation-delay: 1s;
+}
+.FadeInMenu li:nth-child(5) {
+  animation: 0.4s fadein linear;
+  animation-fill-mode: both;
+  animation-delay: 1.25s;
+}
+.FadeInMenu li:nth-child(6) {
+  animation: 0.4s fadein linear;
+  animation-fill-mode: both;
+  animation-delay: 1.5s;
+}
+.FadeInMenu li:nth-child(7) {
+  animation: 0.4s fadein linear;
+  animation-fill-mode: both;
+  animation-delay: 1.75s;
+}
+.FadeInMenu li:nth-child(8) {
+  animation: 0.4s fadein linear;
+  animation-fill-mode: both;
+  animation-delay: 2s;
+}
+.FadeInMenu li:nth-child(9) {
+  animation: 0.4s fadein linear;
+  animation-fill-mode: both;
+  animation-delay: 2.25s;
+}
+.FadeInMenu li:nth-child(10) {
+  animation: 0.4s fadein linear;
+  animation-fill-mode: both;
+  animation-delay: 2.5s;
+}
+@media (max-width: 768px) {
+  body .menu-container nav ul li a {
+    font-size: 1.5em;
+  }
+  body .menu-container nav ul li a:hover,
+  body .menu-container nav ul li a:focus {
+    font-size: 1.8em;
+  }
+}
+@media (max-width: 480px) {
+  body .menu-container nav ul li a {
+    font-size: 1.2em;
+  }
+  body .menu-container nav ul li a:hover,
+  body .menu-container nav ul li a:focus {
+    font-size: 1.5em;
+  }
+}
+@-moz-keyframes moveup {
+  0% {
+    opacity: 0;
+    margin-top: 100px;
+  }
+  100% {
+    opacity: 1;
+    margin-top: 0px;
+  }
+}
+@-webkit-keyframes moveup {
+  0% {
+    opacity: 0;
+    margin-top: 100px;
+  }
+  100% {
+    opacity: 1;
+    margin-top: 0px;
+  }
+}
+@-o-keyframes moveup {
+  0% {
+    opacity: 0;
+    margin-top: 100px;
+  }
+  100% {
+    opacity: 1;
+    margin-top: 0px;
+  }
+}
+@keyframes moveup {
+  0% {
+    opacity: 0;
+    margin-top: 100px;
+  }
+  100% {
+    opacity: 1;
+    margin-top: 0px;
+  }
+}
+@-moz-keyframes movedown {
+  0% {
+    opacity: 0;
+    margin-top: -100px;
+  }
+  100% {
+    opacity: 1;
+    margin-top: 0px;
+  }
+}
+@-webkit-keyframes movedown {
+  0% {
+    opacity: 0;
+    margin-top: -100px;
+  }
+  100% {
+    opacity: 1;
+    margin-top: 0px;
+  }
+}
+@-o-keyframes movedown {
+  0% {
+    opacity: 0;
+    margin-top: -100px;
+  }
+  100% {
+    opacity: 1;
+    margin-top: 0px;
+  }
+}
+@keyframes movedown {
+  0% {
+    opacity: 0;
+    margin-top: -100px;
+  }
+  100% {
+    opacity: 1;
+    margin-top: 0px;
+  }
+}
+@-moz-keyframes appear {
+  0% {
+    opacity: 0;
+  }
+  35% {
+    opacity: 0;
+    transform: scale(0.85);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+@-webkit-keyframes appear {
+  0% {
+    opacity: 0;
+  }
+  35% {
+    opacity: 0;
+    transform: scale(0.85);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+@-o-keyframes appear {
+  0% {
+    opacity: 0;
+  }
+  35% {
+    opacity: 0;
+    transform: scale(0.85);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+@keyframes appear {
+  0% {
+    opacity: 0;
+  }
+  35% {
+    opacity: 0;
+    transform: scale(0.85);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+@-moz-keyframes pop {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  50% {
+    opacity: 0;
+    transform: scale(0.7);
+  }
+  70% {
+    opacity: 0.5;
+    transform: scale(1.35);
+  }
+  85% {
+    opacity: 0.85;
+    transform: scale(0.85);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+@-webkit-keyframes pop {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  50% {
+    opacity: 0;
+    transform: scale(0.7);
+  }
+  70% {
+    opacity: 0.5;
+    transform: scale(1.35);
+  }
+  85% {
+    opacity: 0.85;
+    transform: scale(0.85);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+@-o-keyframes pop {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  50% {
+    opacity: 0;
+    transform: scale(0.7);
+  }
+  70% {
+    opacity: 0.5;
+    transform: scale(1.35);
+  }
+  85% {
+    opacity: 0.85;
+    transform: scale(0.85);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+@keyframes pop {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  50% {
+    opacity: 0;
+    transform: scale(0.7);
+  }
+  70% {
+    opacity: 0.5;
+    transform: scale(1.35);
+  }
+  85% {
+    opacity: 0.85;
+    transform: scale(0.85);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+@-moz-keyframes slided {
+  0% {
+    opacity: 0;
+    margin-right: 70px;
+  }
+  60% {
+    opacity: 0.5;
+    margin-right: -70px;
+  }
+  100% {
+    opacity: 1;
+    margin-right: 0px;
+  }
+}
+@-webkit-keyframes slided {
+  0% {
+    opacity: 0;
+    margin-right: 70px;
+  }
+  60% {
+    opacity: 0.5;
+    margin-right: -70px;
+  }
+  100% {
+    opacity: 1;
+    margin-right: 0px;
+  }
+}
+@-o-keyframes slided {
+  0% {
+    opacity: 0;
+    margin-right: 70px;
+  }
+  60% {
+    opacity: 0.5;
+    margin-right: -70px;
+  }
+  100% {
+    opacity: 1;
+    margin-right: 0px;
+  }
+}
+@keyframes slided {
+  0% {
+    opacity: 0;
+    margin-right: 70px;
+  }
+  60% {
+    opacity: 0.5;
+    margin-right: -70px;
+  }
+  100% {
+    opacity: 1;
+    margin-right: 0px;
+  }
+}
+@-moz-keyframes fadein {
+  0% {
+    opacity: 0;
+    margin-top: 30px;
+  }
+  100% {
+    opacity: 1;
+    margin-top: 0px;
+  }
+}
+@-webkit-keyframes fadein {
+  0% {
+    opacity: 0;
+    margin-top: 30px;
+  }
+  100% {
+    opacity: 1;
+    margin-top: 0px;
+  }
+}
+@-o-keyframes fadein {
+  0% {
+    opacity: 0;
+    margin-top: 30px;
+  }
+  100% {
+    opacity: 1;
+    margin-top: 0px;
+  }
+}
+@keyframes fadein {
+  0% {
+    opacity: 0;
+    margin-top: 30px;
+  }
+  100% {
+    opacity: 1;
+    margin-top: 0px;
+  }
+}

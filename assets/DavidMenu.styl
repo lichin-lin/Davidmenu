@@ -1,0 +1,188 @@
+/*===== DavidFullMenu v0.2 =====
+
+  use DavidFullMenu Function to 
+  make your own full screen menu!  
+
+===== DavidBackground sheet =====
+Grass, Chill, Sky, Rose, Autumn, Wine
+===== DavidBackground sheet =====
+moveUpMenu, moveDownMenu, appearMenu,
+popAppearMenu, FadeInMenu , slide    */
+
+light-yellow = #F9C46A
+      
+.menu-container
+  overflow scroll
+  position fixed
+  opacity 0
+  top 0
+  left 0
+  visibility hidden
+  width 100%
+  height 100%
+  transition all .5s ease .35s
+  z-index 2
+  background white
+  &.showOnMenu
+    opacity 1
+    visibility visible
+    transition all .5s ease .15s
+  nav
+    display flex
+    flex-direction column
+    height 100vh
+    transition all .6s ease
+    ul,li,div
+      padding 0
+      margin 0
+    ul
+      list-style none
+      text-align center
+      li
+        font-family Raleway
+        letter-spacing 10px
+        align-items center
+        line-height 20vh
+        a
+          position relative
+          cursor pointer
+          text-decoration none
+          font-size 2em
+          color #50514f + 10%
+          transition all .35s ease
+          opacity 0
+          &:before, &:after
+            content ""
+            position absolute
+            background-color light-yellow 
+            bottom 0
+            left 0
+            width 100%
+            transform scaleX(0)
+            height 2px
+            transition all .35s ease
+          &:hover, &:focus
+            transition all .3s ease
+            font-size 2.4em
+            color #50514f - 30%
+            &:before, &:after
+              transition all .5s ease
+              transform scaleX(1)
+.moveUpMenu
+  opacity 1
+  transition all 1s ease .3s
+  animation 1s moveup linear
+@keyframes moveup
+  0%
+    opacity 0
+    margin-top 100px
+  100%
+    opacity 1
+    margin-top 0px
+    
+.moveDownMenu
+  opacity 1
+  transition all 1s ease .3s
+  animation 1s movedown linear
+@keyframes movedown
+  0%
+    opacity 0
+    margin-top -100px
+  100%
+    opacity 1
+    margin-top 0px
+    
+.appearMenu
+  opacity 1
+  transition all 1s ease .3s
+  animation 1s appear linear
+@keyframes appear
+  0%
+    opacity 0
+  35%
+    opacity 0
+    transform scale(0.85)
+  100%
+   opacity 1
+   transform scale(1)
+    
+.popAppearMenu
+  opacity 1
+  transition all .8s ease .3s
+  animation 1s pop linear
+@keyframes pop
+  0%
+    opacity 0
+    transform scale(0)
+  50%
+    opacity 0
+    transform scale(0.7)
+  70%
+    opacity .5
+    transform scale(1.35)
+  85%
+    opacity .85
+    transform scale(0.85)
+  100%
+   opacity 1
+   transform scale(1)
+ 
+.SlideInMenu
+  opacity 1
+  transition all .8s ease
+  li
+    opacity 1
+    for i in (1..10)
+      &:nth-child({i})
+        animation .5s slided ease
+        animation-fill-mode both
+        animation-delay: i *.25s
+@keyframes slided
+  0%
+    opacity 0
+    margin-right 70px
+  60%
+    opacity .5
+    margin-right -70px
+  100%
+    opacity 1
+    margin-right 0px
+    
+.FadeInMenu
+  opacity 1
+  transition all .8s ease
+  li
+    opacity 1
+    for i in (1..10)
+      &:nth-child({i})
+        animation .4s fadein linear
+        animation-fill-mode both
+        animation-delay: i *.25s
+@keyframes fadein
+  0%
+    opacity 0
+    margin-top 30px
+  100%
+    opacity 1
+    margin-top 0px
+   
+@media(max-width:768px)
+  body
+    .menu-container
+      nav
+        ul
+          li
+            a
+              font-size 1.5em
+              &:hover, &:focus
+                font-size 1.8em
+@media(max-width:480px)
+  body
+    .menu-container
+      nav
+        ul
+          li
+            a
+              font-size 1.2em
+              &:hover, &:focus
+                font-size 1.5em

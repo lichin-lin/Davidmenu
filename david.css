@@ -1,0 +1,681 @@
+ul,
+li,
+div {
+  padding: 0;
+  margin: 0;
+}
+body {
+  overflow: scroll;
+  padding: 0;
+  margin: 0;
+  max-width: 100%;
+  height: 400px;
+  background-color: #f9c46a;
+}
+body .colorPicker,
+body .animationPicker {
+  position: absolute;
+  width: 120px;
+  top: 20px;
+  right: 10px;
+  background-color: #50514f;
+  color: #fff;
+  outline: none;
+  padding: 5px 20px 5px 20px;
+  border: 5px solid #50514f;
+  font-size: 1.2em;
+  cursor: pointer;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+body .colorPicker option,
+body .animationPicker option {
+  background-color: #50514f;
+  color: #fff;
+  transition: all 0.3s ease;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background: none;
+}
+body .animationPicker {
+  top: 70px;
+}
+body .menu-info {
+  position: relative;
+  top: 40%;
+  padding: 0;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 3em;
+}
+body .menu-info p {
+  margin: 0;
+  color: #50514f;
+  font-family: Bad Script;
+}
+body .menu-info span {
+  position: relative;
+  top: -45px;
+  font-size: 0.5em;
+  color: #50514f;
+  font-family: Lato;
+}
+
+body .menu-info span strong a{
+  color: #000;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  text-decoration: none;
+}
+body .menu-info span strong a:hover{
+  color: #fff;
+  transition: all 0.4s ease;
+}
+
+body .menu-button {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 40px;
+  height: 35px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+body .menu-button:before,
+body .menu-button:after {
+  content: "";
+  position: absolute;
+  top: 0px;
+  border-radius: 5px;
+  width: 100%;
+  height: 6px;
+  background-color: #fff;
+  transition: all 0.25s ease;
+}
+body .menu-button:after {
+  top: calc(100% - 6px);
+}
+body .menu-button.addOnMenu:before {
+  transform: rotate(45deg);
+  top: calc(50% - 3px);
+  transition: all 0.3s ease;
+}
+body .menu-button.addOnMenu:after {
+  transform: rotate(-45deg);
+  top: calc(50% - 3px);
+  transition: all 0.3s ease;
+}
+body .menu-button.addOnMenu > .menu-middlebar {
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+body .menu-button .menu-middlebar {
+  opacity: 1;
+  position: relative;
+  top: calc(50% - 3px);
+  width: 100%;
+  height: 6px;
+  border-radius: 5px;
+  background-color: #fff;
+  transition: all 0.2s ease;
+}
+.menu-container {
+  overflow: scroll;
+  position: fixed;
+  opacity: 0;
+  top: 0;
+  left: 0;
+  visibility: hidden;
+  width: 100%;
+  height: 100%;
+  transition: all 0.5s ease 0.35s;
+  z-index: 2;
+  background: #fff;
+}
+.menu-container.showOnMenu {
+  opacity: 1;
+  visibility: visible;
+  transition: all 0.5s ease 0.15s;
+}
+.menu-container nav {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  transition: all 0.6s ease;
+}
+.menu-container nav ul {
+  list-style: none;
+  text-align: center;
+}
+.menu-container nav ul li {
+  font-family: Raleway;
+  letter-spacing: 10px;
+  align-items: center;
+  line-height: 20vh;
+}
+.menu-container nav ul li a {
+  position: relative;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 2em;
+  color: #626360;
+}
+.menu-container nav ul li a transition all .35s ease {
+  opacity: 0;
+}
+.menu-container nav ul li a:before,
+.menu-container nav ul li a:after {
+  content: "";
+  position: absolute;
+  background-color: #f9c46a;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  transition: all 0.35s ease;
+}
+.menu-container nav ul li a:hover,
+.menu-container nav ul li a:focus {
+  transition: all 0.3s ease;
+  font-size: 2.4em;
+  color: #383937;
+}
+.menu-container nav ul li a:hover:before,
+.menu-container nav ul li a:focus:before,
+.menu-container nav ul li a:hover:after,
+.menu-container nav ul li a:focus:after {
+  transition: all 0.5s ease;
+  transform: scaleX(1);
+}
+.moveUpMenu {
+  opacity: 1;
+  transition: all 1s ease 0.3s;
+  animation: 1s moveup linear;
+}
+.moveDownMenu {
+  opacity: 1;
+  transition: all 1s ease 0.3s;
+  animation: 1s movedown linear;
+}
+.appearMenu {
+  opacity: 1;
+  transition: all 1s ease 0.3s;
+  animation: 1s appear linear;
+}
+.popAppearMenu {
+  opacity: 1;
+  transition: all 0.8s ease 0.3s;
+  animation: 1s pop linear;
+}
+.SlideInMenu {
+  opacity: 1;
+  transition: all 0.8s ease;
+}
+.SlideInMenu li {
+  opacity: 1;
+}
+.SlideInMenu li:nth-child(1) {
+  animation: 0.5s slided ease;
+  animation-fill-mode: both;
+  animation-delay: 0.25s;
+}
+.SlideInMenu li:nth-child(2) {
+  animation: 0.5s slided ease;
+  animation-fill-mode: both;
+  animation-delay: 0.5s;
+}
+.SlideInMenu li:nth-child(3) {
+  animation: 0.5s slided ease;
+  animation-fill-mode: both;
+  animation-delay: 0.75s;
+}
+.SlideInMenu li:nth-child(4) {
+  animation: 0.5s slided ease;
+  animation-fill-mode: both;
+  animation-delay: 1s;
+}
+.SlideInMenu li:nth-child(5) {
+  animation: 0.5s slided ease;
+  animation-fill-mode: both;
+  animation-delay: 1.25s;
+}
+.SlideInMenu li:nth-child(6) {
+  animation: 0.5s slided ease;
+  animation-fill-mode: both;
+  animation-delay: 1.5s;
+}
+.SlideInMenu li:nth-child(7) {
+  animation: 0.5s slided ease;
+  animation-fill-mode: both;
+  animation-delay: 1.75s;
+}
+.SlideInMenu li:nth-child(8) {
+  animation: 0.5s slided ease;
+  animation-fill-mode: both;
+  animation-delay: 2s;
+}
+.SlideInMenu li:nth-child(9) {
+  animation: 0.5s slided ease;
+  animation-fill-mode: both;
+  animation-delay: 2.25s;
+}
+.SlideInMenu li:nth-child(10) {
+  animation: 0.5s slided ease;
+  animation-fill-mode: both;
+  animation-delay: 2.5s;
+}
+.FadeInMenu {
+  opacity: 1;
+  transition: all 0.8s ease;
+}
+.FadeInMenu li {
+  opacity: 1;
+}
+.FadeInMenu li:nth-child(1) {
+  animation: 0.4s fadein linear;
+  animation-fill-mode: both;
+  animation-delay: 0.25s;
+}
+.FadeInMenu li:nth-child(2) {
+  animation: 0.4s fadein linear;
+  animation-fill-mode: both;
+  animation-delay: 0.5s;
+}
+.FadeInMenu li:nth-child(3) {
+  animation: 0.4s fadein linear;
+  animation-fill-mode: both;
+  animation-delay: 0.75s;
+}
+.FadeInMenu li:nth-child(4) {
+  animation: 0.4s fadein linear;
+  animation-fill-mode: both;
+  animation-delay: 1s;
+}
+.FadeInMenu li:nth-child(5) {
+  animation: 0.4s fadein linear;
+  animation-fill-mode: both;
+  animation-delay: 1.25s;
+}
+.FadeInMenu li:nth-child(6) {
+  animation: 0.4s fadein linear;
+  animation-fill-mode: both;
+  animation-delay: 1.5s;
+}
+.FadeInMenu li:nth-child(7) {
+  animation: 0.4s fadein linear;
+  animation-fill-mode: both;
+  animation-delay: 1.75s;
+}
+.FadeInMenu li:nth-child(8) {
+  animation: 0.4s fadein linear;
+  animation-fill-mode: both;
+  animation-delay: 2s;
+}
+.FadeInMenu li:nth-child(9) {
+  animation: 0.4s fadein linear;
+  animation-fill-mode: both;
+  animation-delay: 2.25s;
+}
+.FadeInMenu li:nth-child(10) {
+  animation: 0.4s fadein linear;
+  animation-fill-mode: both;
+  animation-delay: 2.5s;
+}
+@media (max-width: 768px) {
+  body .colorPicker,
+  body .animationPicker {
+    top: 15px;
+    padding: 5px 10px 5px 10px;
+    width: 100px;
+    font-size: 1em;
+  }
+  body .animationPicker {
+    right: 120px;
+  }
+  body .menu-info {
+    font-size: 2em;
+  }
+  body .menu-info span {
+    top: -30px;
+  }
+  body .menu-container nav ul li a {
+    font-size: 1.5em;
+  }
+  body .menu-container nav ul li a:hover,
+  body .menu-container nav ul li a:focus {
+    font-size: 1.8em;
+  }
+}
+@media (max-width: 480px) {
+  body .menu-info {
+    font-size: 1.5em;
+  }
+  body .menu-info span {
+    font-size: 0.6em;
+    top: -20px;
+  }
+  body .menu-container nav ul li a {
+    font-size: 1.2em;
+  }
+  body .menu-container nav ul li a:hover,
+  body .menu-container nav ul li a:focus {
+    font-size: 1.5em;
+  }
+}
+@-moz-keyframes moveup {
+  0% {
+    opacity: 0;
+    margin-top: 100px;
+  }
+  100% {
+    opacity: 1;
+    margin-top: 0px;
+  }
+}
+@-webkit-keyframes moveup {
+  0% {
+    opacity: 0;
+    margin-top: 100px;
+  }
+  100% {
+    opacity: 1;
+    margin-top: 0px;
+  }
+}
+@-o-keyframes moveup {
+  0% {
+    opacity: 0;
+    margin-top: 100px;
+  }
+  100% {
+    opacity: 1;
+    margin-top: 0px;
+  }
+}
+@keyframes moveup {
+  0% {
+    opacity: 0;
+    margin-top: 100px;
+  }
+  100% {
+    opacity: 1;
+    margin-top: 0px;
+  }
+}
+@-moz-keyframes movedown {
+  0% {
+    opacity: 0;
+    margin-top: -100px;
+  }
+  100% {
+    opacity: 1;
+    margin-top: 0px;
+  }
+}
+@-webkit-keyframes movedown {
+  0% {
+    opacity: 0;
+    margin-top: -100px;
+  }
+  100% {
+    opacity: 1;
+    margin-top: 0px;
+  }
+}
+@-o-keyframes movedown {
+  0% {
+    opacity: 0;
+    margin-top: -100px;
+  }
+  100% {
+    opacity: 1;
+    margin-top: 0px;
+  }
+}
+@keyframes movedown {
+  0% {
+    opacity: 0;
+    margin-top: -100px;
+  }
+  100% {
+    opacity: 1;
+    margin-top: 0px;
+  }
+}
+@-moz-keyframes appear {
+  0% {
+    opacity: 0;
+  }
+  35% {
+    opacity: 0;
+    transform: scale(0.85);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+@-webkit-keyframes appear {
+  0% {
+    opacity: 0;
+  }
+  35% {
+    opacity: 0;
+    transform: scale(0.85);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+@-o-keyframes appear {
+  0% {
+    opacity: 0;
+  }
+  35% {
+    opacity: 0;
+    transform: scale(0.85);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+@keyframes appear {
+  0% {
+    opacity: 0;
+  }
+  35% {
+    opacity: 0;
+    transform: scale(0.85);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+@-moz-keyframes pop {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  50% {
+    opacity: 0;
+    transform: scale(0.7);
+  }
+  70% {
+    opacity: 0.5;
+    transform: scale(1.35);
+  }
+  85% {
+    opacity: 0.85;
+    transform: scale(0.85);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+@-webkit-keyframes pop {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  50% {
+    opacity: 0;
+    transform: scale(0.7);
+  }
+  70% {
+    opacity: 0.5;
+    transform: scale(1.35);
+  }
+  85% {
+    opacity: 0.85;
+    transform: scale(0.85);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+@-o-keyframes pop {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  50% {
+    opacity: 0;
+    transform: scale(0.7);
+  }
+  70% {
+    opacity: 0.5;
+    transform: scale(1.35);
+  }
+  85% {
+    opacity: 0.85;
+    transform: scale(0.85);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+@keyframes pop {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  50% {
+    opacity: 0;
+    transform: scale(0.7);
+  }
+  70% {
+    opacity: 0.5;
+    transform: scale(1.35);
+  }
+  85% {
+    opacity: 0.85;
+    transform: scale(0.85);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+@-moz-keyframes slided {
+  0% {
+    opacity: 0;
+    margin-right: 70px;
+  }
+  60% {
+    opacity: 0.5;
+    margin-right: -70px;
+  }
+  100% {
+    opacity: 1;
+    margin-right: 0px;
+  }
+}
+@-webkit-keyframes slided {
+  0% {
+    opacity: 0;
+    margin-right: 70px;
+  }
+  60% {
+    opacity: 0.5;
+    margin-right: -70px;
+  }
+  100% {
+    opacity: 1;
+    margin-right: 0px;
+  }
+}
+@-o-keyframes slided {
+  0% {
+    opacity: 0;
+    margin-right: 70px;
+  }
+  60% {
+    opacity: 0.5;
+    margin-right: -70px;
+  }
+  100% {
+    opacity: 1;
+    margin-right: 0px;
+  }
+}
+@keyframes slided {
+  0% {
+    opacity: 0;
+    margin-right: 70px;
+  }
+  60% {
+    opacity: 0.5;
+    margin-right: -70px;
+  }
+  100% {
+    opacity: 1;
+    margin-right: 0px;
+  }
+}
+@-moz-keyframes fadein {
+  0% {
+    opacity: 0;
+    margin-top: 30px;
+  }
+  100% {
+    opacity: 1;
+    margin-top: 0px;
+  }
+}
+@-webkit-keyframes fadein {
+  0% {
+    opacity: 0;
+    margin-top: 30px;
+  }
+  100% {
+    opacity: 1;
+    margin-top: 0px;
+  }
+}
+@-o-keyframes fadein {
+  0% {
+    opacity: 0;
+    margin-top: 30px;
+  }
+  100% {
+    opacity: 1;
+    margin-top: 0px;
+  }
+}
+@keyframes fadein {
+  0% {
+    opacity: 0;
+    margin-top: 30px;
+  }
+  100% {
+    opacity: 1;
+    margin-top: 0px;
+  }
+}
