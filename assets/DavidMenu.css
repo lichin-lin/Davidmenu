@@ -1,120 +1,3 @@
-/*===== DavidFullMenu v0.2 =====
-
-  use DavidFullMenu Function to 
-  make your own full screen menu!  
-
-===== DavidBackground sheet =====
-Grass, Chill, Sky, Rose, Autumn, Wine
-===== DavidBackground sheet =====
-moveUpMenu, moveDownMenu, appearMenu,
-popAppearMenu, FadeInMenu , slide    */
-ul,
-li,
-div {
-  padding: 0;
-  margin: 0;
-}
-body {
-  padding: 0;
-  margin: 0;
-  max-width: 100%;
-  height: 400px;
-  background-color: #f9c46a;
-}
-body .colorPicker,
-body .animationPicker {
-  position: absolute;
-  width: 120px;
-  top: 20px;
-  right: 10px;
-  background-color: #50514f;
-  color: #fff;
-  outline: none;
-  padding: 5px 20px 5px 20px;
-  border: 5px solid #50514f;
-  font-size: 1.2em;
-  cursor: pointer;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-}
-body .colorPicker option,
-body .animationPicker option {
-  background-color: #50514f;
-  color: #fff;
-  transition: all 0.3s ease;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  background: none;
-}
-body .animationPicker {
-  top: 70px;
-}
-body .menu-info {
-  position: relative;
-  top: 40%;
-  padding: 0;
-  margin: 0 auto;
-  text-align: center;
-  font-size: 3em;
-}
-body .menu-info p {
-  margin: 0;
-  color: #50514f;
-  font-family: Bad Script;
-}
-body .menu-info span {
-  position: relative;
-  top: -45px;
-  font-size: 0.5em;
-  font-family: Lato;
-}
-body .menu-button {
-  position: absolute;
-  top: 20px;
-  left: 20px;
-  width: 40px;
-  height: 35px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-body .menu-button:before,
-body .menu-button:after {
-  content: "";
-  position: absolute;
-  top: 0px;
-  border-radius: 5px;
-  width: 100%;
-  height: 6px;
-  background-color: #fff;
-  transition: all 0.25s ease;
-}
-body .menu-button:after {
-  top: calc(100% - 6px);
-}
-body .menu-button.addOnMenu:before {
-  transform: rotate(45deg);
-  top: calc(50% - 3px);
-  transition: all 0.3s ease;
-}
-body .menu-button.addOnMenu:after {
-  transform: rotate(-45deg);
-  top: calc(50% - 3px);
-  transition: all 0.3s ease;
-}
-body .menu-button.addOnMenu > .menu-middlebar {
-  opacity: 0;
-  transition: all 0.3s ease;
-}
-body .menu-button .menu-middlebar {
-  opacity: 1;
-  position: relative;
-  top: calc(50% - 3px);
-  width: 100%;
-  height: 6px;
-  border-radius: 5px;
-  background-color: #fff;
-  transition: all 0.2s ease;
-}
 .menu-container {
   overflow: scroll;
   position: fixed;
@@ -147,44 +30,40 @@ body .menu-button .menu-middlebar {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-.menu-container nav ul font-family Raleway {
-  letter-spacing: 10px;
+  font-family: Raleway;
   height: 25vh;
 }
-.menu-container nav ul font-family Raleway a {
+.menu-container nav ul li a {
   position: relative;
   cursor: pointer;
   text-decoration: none;
   font-size: 2em;
   color: #626360;
-}
-.menu-container nav ul font-family Raleway a transition all .35s ease {
-  opacity: 0;
+  transition: all .35s ease;
   line-height: 100%;
 }
-.menu-container nav ul font-family Raleway a:before,
-.menu-container nav ul font-family Raleway a:after {
+.menu-container nav ul li a:before,
+.menu-container nav ul li a:after {
   content: "";
   position: absolute;
-  background-color: #f9c46a;
-  bottom: 0;
   left: 0;
   width: 100%;
   transform: scaleX(0);
   height: 2px;
   transition: all 0.35s ease;
+  background-color: #F9C46A;
+  bottom: -10px;
 }
-.menu-container nav ul font-family Raleway a:hover,
-.menu-container nav ul font-family Raleway a:focus {
+.menu-container nav ul li a:hover,
+.menu-container nav ul li a:focus {
   transition: all 0.3s ease;
   font-size: 2.4em;
   color: #383937;
 }
-.menu-container nav ul font-family Raleway a:hover:before,
-.menu-container nav ul font-family Raleway a:focus:before,
-.menu-container nav ul font-family Raleway a:hover:after,
-.menu-container nav ul font-family Raleway a:focus:after {
+.menu-container nav ul li a:hover:before,
+.menu-container nav ul li a:focus:before,
+.menu-container nav ul li a:hover:after,
+.menu-container nav ul li a:focus:after {
   transition: all 0.5s ease;
   transform: scaleX(1);
 }

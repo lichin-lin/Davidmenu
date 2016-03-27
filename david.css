@@ -169,9 +169,7 @@ body .menu-button .menu-middlebar {
   text-decoration: none;
   font-size: 2em;
   color: #626360;
-}
-.menu-container nav ul li a transition all .35s ease {
-  opacity: 0;
+  transition: all .35s ease;
   line-height: 100%;
 }
 .menu-container nav ul li a:before,
@@ -183,9 +181,7 @@ body .menu-button .menu-middlebar {
   transform: scaleX(0);
   height: 2px;
   transition: all 0.35s ease;
-}
-.menu-container nav ul li a:before background-color light-yellow,
-.menu-container nav ul li a:after background-color light-yellow {
+  background-color: #F9C46A;
   bottom: -10px;
 }
 .menu-container nav ul li a:hover,
