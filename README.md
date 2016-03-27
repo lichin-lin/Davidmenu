@@ -2,7 +2,7 @@
 
 DavidMenu let you customize you full screen menu simply. 
 <br>
-![DavidMenu.gif](https://raw.githubusercontent.com/lichin-lin/Juliealert/master/JulieAlert.gif)
+![DavidMenu.gif]()
 
 
 
@@ -45,5 +45,5 @@ $( /*the object to trigger Full menu*/ ).on( "click", function() {
 ___
 
 ## Argument & value
-1.DavidMenuAnimation: ```moveUpMenu```,```moveDownMenu```,```appearMenu```,```popAppearMenu```,```FadeInMenu```,```SlideInMenu```,
-2.DavidBackground: ```Grass```,```Chill```,```Sky```,```Rose```,```Autumn```,```Wine```,
+1.DavidMenuAnimation: ```moveUpMenu```,```moveDownMenu```,```appearMenu```,```popAppearMenu```,```FadeInMenu```,```SlideInMenu```
+2.DavidBackground: ```Grass```,```Chill```,```Sky```,```Rose```,```Autumn```,```Wine```
