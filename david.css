@@ -1,3 +1,13 @@
+/*===== DavidFullMenu v0.2 =====
+
+  use DavidFullMenu Function to 
+  make your own full screen menu!  
+
+===== DavidBackground sheet =====
+Grass, Chill, Sky, Rose, Autumn, Wine
+===== DavidBackground sheet =====
+moveUpMenu, moveDownMenu, appearMenu,
+popAppearMenu, FadeInMenu , slide    */
 ul,
 li,
 div {
@@ -5,7 +15,6 @@ div {
   margin: 0;
 }
 body {
-  overflow: scroll;
   padding: 0;
   margin: 0;
   max-width: 100%;
@@ -57,21 +66,8 @@ body .menu-info span {
   position: relative;
   top: -45px;
   font-size: 0.5em;
-  color: #50514f;
   font-family: Lato;
 }
-
-body .menu-info span strong a{
-  color: #000;
-  cursor: pointer;
-  transition: all 0.4s ease;
-  text-decoration: none;
-}
-body .menu-info span strong a:hover{
-  color: #fff;
-  transition: all 0.4s ease;
-}
-
 body .menu-button {
   position: absolute;
   top: 20px;
@@ -151,7 +147,7 @@ body .menu-button .menu-middlebar {
   font-family: Raleway;
   letter-spacing: 10px;
   align-items: center;
-  line-height: 20vh;
+  height: 25vh;
 }
 .menu-container nav ul li a {
   position: relative;
@@ -162,6 +158,7 @@ body .menu-button .menu-middlebar {
 }
 .menu-container nav ul li a transition all .35s ease {
   opacity: 0;
+  line-height: 100%;
 }
 .menu-container nav ul li a:before,
 .menu-container nav ul li a:after {
