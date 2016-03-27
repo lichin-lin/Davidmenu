@@ -1,3 +1,13 @@
+/*===== DavidFullMenu v0.2 =====
+
+  use DavidFullMenu Function to 
+  make your own full screen menu!  
+
+===== DavidBackground sheet =====
+Grass, Chill, Sky, Rose, Autumn, Wine
+===== DavidBackground sheet =====
+moveUpMenu, moveDownMenu, appearMenu,
+popAppearMenu, FadeInMenu , slide    */
 ul,
 li,
 div {
@@ -5,26 +15,30 @@ div {
   margin: 0;
 }
 body {
-  overflow: scroll;
   padding: 0;
   margin: 0;
   max-width: 100%;
   height: 400px;
   background-color: #f9c46a;
 }
-body .colorPicker,
-body .animationPicker {
+body .picker-options {
   position: absolute;
-  width: 120px;
+  width: 135px;
   top: 20px;
   right: 10px;
+}
+body .colorPicker,
+body .animationPicker {
+  display: block;
+  margin-bottom: 10px;
   background-color: #50514f;
   color: #fff;
   outline: none;
   padding: 5px 20px 5px 20px;
   border: 5px solid #50514f;
-  font-size: 1.2em;
+  font-size: 1em;
   cursor: pointer;
+  width: 100%;
   -webkit-appearance: none;
   -moz-appearance: none;
 }
@@ -37,9 +51,6 @@ body .animationPicker option {
   -moz-appearance: none;
   background: none;
 }
-body .animationPicker {
-  top: 70px;
-}
 body .menu-info {
   position: relative;
   top: 40%;
@@ -48,30 +59,28 @@ body .menu-info {
   text-align: center;
   font-size: 3em;
 }
-body .menu-info p {
+body .menu-info h2 {
   margin: 0;
   color: #50514f;
   font-family: Bad Script;
+  font-size: 1em;
+  line-height: 1.2em;
 }
-body .menu-info span {
+body .menu-info p {
   position: relative;
-  top: -45px;
-  font-size: 0.5em;
-  color: #50514f;
+  font-size: 0.375em;
   font-family: Lato;
+  color: #50514f;
 }
-
-body .menu-info span strong a{
+body .menu-info a {
   color: #000;
-  cursor: pointer;
-  transition: all 0.4s ease;
+  font-weight: 600;
+  font-size: 1.25em;
   text-decoration: none;
 }
-body .menu-info span strong a:hover{
-  color: #fff;
-  transition: all 0.4s ease;
+body .menu-info__divider {
+  margin-bottom: 80px;
 }
-
 body .menu-button {
   position: absolute;
   top: 20px;
@@ -148,10 +157,11 @@ body .menu-button .menu-middlebar {
   text-align: center;
 }
 .menu-container nav ul li {
-  font-family: Raleway;
-  letter-spacing: 10px;
+  display: flex;
+  justify-content: center;
   align-items: center;
-  line-height: 20vh;
+  font-family: Raleway;
+  height: 25vh;
 }
 .menu-container nav ul li a {
   position: relative;
@@ -162,18 +172,21 @@ body .menu-button .menu-middlebar {
 }
 .menu-container nav ul li a transition all .35s ease {
   opacity: 0;
+  line-height: 100%;
 }
 .menu-container nav ul li a:before,
 .menu-container nav ul li a:after {
   content: "";
   position: absolute;
-  background-color: #f9c46a;
-  bottom: 0;
   left: 0;
   width: 100%;
   transform: scaleX(0);
   height: 2px;
   transition: all 0.35s ease;
+}
+.menu-container nav ul li a:before background-color light-yellow,
+.menu-container nav ul li a:after background-color light-yellow {
+  bottom: -10px;
 }
 .menu-container nav ul li a:hover,
 .menu-container nav ul li a:focus {
