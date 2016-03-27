@@ -50,15 +50,24 @@ body
     margin 0 auto
     text-align center
     font-size 3em
-    p
+    h2
       margin 0
       color #50514f
       font-family Bad Script
-    span
+      font-size 1em
+      line-height: 1.2em
+    p
       position relative
-      top -45px
-      font-size .5em
+      font-size .375em
       font-family Lato
+      color #50514f
+    a
+      color black
+      font-weight 600
+      font-size 1.25em
+      text-decoration none
+  .menu-info__divider
+    margin-bottom 80px
   .menu-button
     position absolute
     top 20px
@@ -125,11 +134,13 @@ body
 	    list-style none
 	    text-align center
 	    li
-	      font-family Raleway
-	      letter-spacing 10px
-	      align-items center
-	      line-height 20vh
-	      a
+        display flex
+        justify-content center
+        align-items center
+        font-family Raleway
+        letter-spacing 10px
+        height 25vh
+        a
 	        position relative
 	        cursor pointer
 	        text-decoration none
@@ -137,11 +148,12 @@ body
 	        color #50514f + 10%
 	        transition all .35s ease
           opacity 0
+          line-height 100%
 	        &:before, &:after
 	          content ""
 	          position absolute
 	          background-color light-yellow 
-	          bottom 0
+	          bottom -10px
 	          left 0
 	          width 100%
 	          transform scaleX(0)

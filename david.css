@@ -57,16 +57,27 @@ body .menu-info {
   text-align: center;
   font-size: 3em;
 }
-body .menu-info p {
+body .menu-info h2 {
   margin: 0;
   color: #50514f;
   font-family: Bad Script;
+  font-size: 1em;
+  line-height: 1.2em;
 }
-body .menu-info span {
+body .menu-info p {
   position: relative;
-  top: -45px;
-  font-size: 0.5em;
+  font-size: 0.375em;
   font-family: Lato;
+  color: #50514f;
+}
+body .menu-info a {
+  color: #000;
+  font-weight: 600;
+  font-size: 1.25em;
+  text-decoration: none;
+}
+body .menu-info__divider {
+  margin-bottom: 80px;
 }
 body .menu-button {
   position: absolute;
@@ -144,9 +155,11 @@ body .menu-button .menu-middlebar {
   text-align: center;
 }
 .menu-container nav ul li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-family: Raleway;
   letter-spacing: 10px;
-  align-items: center;
   height: 25vh;
 }
 .menu-container nav ul li a {
@@ -165,7 +178,7 @@ body .menu-button .menu-middlebar {
   content: "";
   position: absolute;
   background-color: #f9c46a;
-  bottom: 0;
+  bottom: -10px;
   left: 0;
   width: 100%;
   transform: scaleX(0);
