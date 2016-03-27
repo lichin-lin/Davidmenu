@@ -21,19 +21,24 @@ body {
   height: 400px;
   background-color: #f9c46a;
 }
-body .colorPicker,
-body .animationPicker {
+body .picker-options {
   position: absolute;
-  width: 120px;
+  width: 135px;
   top: 20px;
   right: 10px;
+}
+body .colorPicker,
+body .animationPicker {
+  display: block;
+  margin-bottom: 10px;
   background-color: #50514f;
   color: #fff;
   outline: none;
   padding: 5px 20px 5px 20px;
   border: 5px solid #50514f;
-  font-size: 1.2em;
+  font-size: 1em;
   cursor: pointer;
+  width: 100%;
   -webkit-appearance: none;
   -moz-appearance: none;
 }
@@ -45,9 +50,6 @@ body .animationPicker option {
   -webkit-appearance: none;
   -moz-appearance: none;
   background: none;
-}
-body .animationPicker {
-  top: 70px;
 }
 body .menu-info {
   position: relative;
@@ -159,7 +161,6 @@ body .menu-button .menu-middlebar {
   justify-content: center;
   align-items: center;
   font-family: Raleway;
-  letter-spacing: 10px;
   height: 25vh;
 }
 .menu-container nav ul li a {
@@ -177,13 +178,15 @@ body .menu-button .menu-middlebar {
 .menu-container nav ul li a:after {
   content: "";
   position: absolute;
-  background-color: #f9c46a;
-  bottom: -10px;
   left: 0;
   width: 100%;
   transform: scaleX(0);
   height: 2px;
   transition: all 0.35s ease;
+}
+.menu-container nav ul li a:before background-color light-yellow,
+.menu-container nav ul li a:after background-color light-yellow {
+  bottom: -10px;
 }
 .menu-container nav ul li a:hover,
 .menu-container nav ul li a:focus {
