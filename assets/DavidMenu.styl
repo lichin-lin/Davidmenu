@@ -10,65 +10,150 @@ moveUpMenu, moveDownMenu, appearMenu,
 popAppearMenu, FadeInMenu , slide    */
 
 light-yellow = #F9C46A
+
+ul,li,div
+  padding 0
+  margin 0
+body
+  padding 0
+  margin 0
+  max-width 100%
+  height 400px
+  background-color light-yellow
+  .colorPicker,.animationPicker
+    position absolute
+    width 120px
+    top 20px
+    right 10px
+    background-color #50514f
+    color white
+    outline none
+    padding 5px 20px 5px 20px
+    border 5px solid #50514f
+    font-size 1.2em
+    cursor pointer
+    -webkit-appearance none
+    -moz-appearance none
+    option
+      background-color #50514f
+      color white
+      transition all .3s ease
+      -webkit-appearance none
+      -moz-appearance none
+      background none
+  .animationPicker
+    top 70px
+  .menu-info
+    position relative
+    top 40%
+    padding 0
+    margin 0 auto
+    text-align center
+    font-size 3em
+    p
+      margin 0
+      color #50514f
+      font-family Bad Script
+    span
+      position relative
+      top -45px
+      font-size .5em
+      font-family Lato
+  .menu-button
+    position absolute
+    top 20px
+    left 20px
+    width 40px
+    height 35px
+    cursor pointer
+    transition all .3s ease
+    &:before, &:after
+      content ""
+      position absolute
+      top 0px
+      border-radius 5px
+      width 100%
+      height 6px
+      background-color white
+      transition all .25s ease
+    &:after
+      top calc(100% - 6px)
+    &.addOnMenu
+      &:before
+        transform rotate(45deg)
+        top calc(50% - 3px)
+        transition all .3s ease
+      &:after
+        transform rotate(-45deg)
+        top calc(50% - 3px)
+        transition all .3s ease
+    &.addOnMenu > .menu-middlebar
+      opacity 0
+      transition all .3s ease
+    .menu-middlebar
+      opacity 1
+      position relative
+      top calc(50% - 3px)
+      width 100%
+      height 6px
+      border-radius 5px
+      background-color white
+      transition all .2s ease
       
 .menu-container
-  overflow scroll
-  position fixed
-  opacity 0
-  top 0
-  left 0
-  visibility hidden
-  width 100%
-  height 100%
-  transition all .5s ease .35s
-  z-index 2
-  background white
-  &.showOnMenu
-    opacity 1
-    visibility visible
-    transition all .5s ease .15s
-  nav
-    display flex
-    flex-direction column
-    height 100vh
-    transition all .6s ease
-    ul,li,div
-      padding 0
-      margin 0
-    ul
-      list-style none
-      text-align center
-      li
-        font-family Raleway
-        letter-spacing 10px
-        align-items center
-        height 25vh
-        a
-          position relative
-          cursor pointer
-          text-decoration none
-          font-size 2em
-          color #50514f + 10%
-          transition all .35s ease
+	overflow scroll
+	position fixed
+	opacity 0
+	top 0
+	left 0
+	visibility hidden
+	width 100%
+	height 100%
+	transition all .5s ease .35s
+	z-index 2
+	background white
+	&.showOnMenu
+	  opacity 1
+	  visibility visible
+	  transition all .5s ease .15s
+	nav
+	  display flex
+	  flex-direction column
+	  height 100vh
+	  transition all .6s ease
+	  ul
+	    list-style none
+	    text-align center
+	    li
+	      font-family Raleway
+	      letter-spacing 10px
+	      align-items center
+	      line-height 20vh
+	      a
+	        position relative
+	        cursor pointer
+	        text-decoration none
+	        font-size 2em
+	        color #50514f + 10%
+	        transition all .35s ease
           opacity 0
-          &:before, &:after
-            content ""
-            position absolute
-            background-color light-yellow 
-            bottom 0
-            left 0
-            width 100%
-            transform scaleX(0)
-            height 2px
-            transition all .35s ease
-          &:hover, &:focus
-            transition all .3s ease
-            font-size 2.4em
-            color #50514f - 30%
-            line-height 100%
-            &:before, &:after
-              transition all .5s ease
-              transform scaleX(1)
+	        &:before, &:after
+	          content ""
+	          position absolute
+	          background-color light-yellow 
+	          bottom 0
+	          left 0
+	          width 100%
+	          transform scaleX(0)
+	          height 2px
+	          transition all .35s ease
+	        &:hover, &:focus
+	          transition all .3s ease
+	          font-size 2.4em
+	          color #50514f - 30%
+	          &:before, &:after
+	            transition all .5s ease
+	            transform scaleX(1)
 .moveUpMenu
   opacity 1
   transition all 1s ease .3s
@@ -169,6 +254,17 @@ light-yellow = #F9C46A
    
 @media(max-width:768px)
   body
+    .colorPicker,.animationPicker
+      top 15px
+      padding 5px 10px 5px 10px
+      width 100px
+      font-size 1em
+    .animationPicker
+      right 120px
+    .menu-info
+      font-size 2em
+      span
+        top -30px
     .menu-container
       nav
         ul
@@ -179,6 +275,11 @@ light-yellow = #F9C46A
                 font-size 1.8em
 @media(max-width:480px)
   body
+    .menu-info
+      font-size 1.5em
+      span
+        font-size .6em
+        top -20px
     .menu-container
       nav
         ul
