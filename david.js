@@ -5,18 +5,10 @@ var Sky = "linear-gradient(135deg, #1493FC 0%, #54B0FD 25%,#81D0FD 50%,#ADE8FD 7
 var Rose = "linear-gradient(135deg, #F44453 0%, #F45B69 25%,#FF8284 50%,#FFB0AA 75%)";
 var Autumn = "linear-gradient(135deg, #E87153 0%, #F7825A 25%,#FFA56D 50%,#FFC77A 75%)";
 var Wine = "linear-gradient(135deg, #841A53 0%, #843B62 25%,#84546E 50%,#84707B 75%)";
+var Cloud = "linear-gradient(135deg, #DCDBE0 0%, #E8E8EA 25%,#EDEDF2 50%,#F4F4F8 75%)";
+var Ocean = "linear-gradient(135deg, #306F93 0%, #367DA5 25%,#449DD1 50%,#38B1F7 75%)";
 var animationType = "moveUpMenu";
 var colorType = Grass;
-/*===== DavidFullMenu v0.2 =====
-
-  use DavidFullMenu Function to 
-  make your own full screen menu!  
-
-===== DavidBackground sheet =====
-Grass, Chill, Sky, Rose, Autumn, Wine
-===== DavidBackground sheet =====
-moveUpMenu, moveDownMenu, appearMenu,
-popAppearMenu, FadeInMenu , slide    */
 
 // vvvvv modify here vvvvvv //
 
@@ -26,7 +18,7 @@ DavidFullMenu({
             {title:"you like by",url:"http://lichin.me"},
             {title:"javascript",url:"http://lichin.me"},
            ],
-    DavidMenuAnimation:"FadeInMenu",
+    DavidMenuAnimation:"moveUpMenu",
     DavidBackground: Sky,
 });
 
@@ -69,7 +61,12 @@ $('.colorPicker').on(
       }else if($(this).val() == 5){
         colorType = Autumn;
       }else if($(this).val() == 6){
+        colorType = Cloud;
+      }else if($(this).val() == 7){
         colorType = Wine;
+        $('.menu-container a').css("color","white");
+      }else if($(this).val() == 8){
+        colorType = Ocean;
         $('.menu-container a').css("color","white");
       }
       this.blur();
@@ -92,7 +89,12 @@ $('.animationPicker').on(
         animationType = "FadeInMenu";
       }else if($(this).val() == 6){
         animationType = "SlideInMenu";
+      }else if($(this).val() == 7){
+        animationType = "RotateMenu";
+      }else if($(this).val() == 8){
+        animationType = "CircleMenu";
       }
       this.blur();
     }
   });
+

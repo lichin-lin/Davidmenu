@@ -4,10 +4,9 @@
   make your own full screen menu!  
 
 ===== DavidBackground sheet =====
-Grass, Chill, Sky, Rose, Autumn, Wine
+Grass, Chill, Sky, Rose, Autumn, Wine, Cloud, Ocean
 ===== DavidBackground sheet =====
-moveUpMenu, moveDownMenu, appearMenu,
-popAppearMenu, FadeInMenu , slide    */
+moveUpMenu, moveDownMenu, moveLeftMenu, moveRightMenu,appearMenu, popAppearMenu, FadeInMenu , SlideInMenu, RotateMenu, CircleMenu*/
 ul,
 li,
 div {
@@ -157,11 +156,10 @@ body .menu-button .menu-middlebar {
   text-align: center;
 }
 .menu-container nav ul li {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   font-family: Raleway;
-  height: 25vh;
+  letter-spacing: 10px;
+  align-items: center;
+  line-height: 20vh;
 }
 .menu-container nav ul li a {
   position: relative;
@@ -169,20 +167,21 @@ body .menu-button .menu-middlebar {
   text-decoration: none;
   font-size: 2em;
   color: #626360;
-  transition: all .35s ease;
-  line-height: 100%;
+}
+.menu-container nav ul li a transition all .35s ease {
+  opacity: 0;
 }
 .menu-container nav ul li a:before,
 .menu-container nav ul li a:after {
   content: "";
   position: absolute;
+  background-color: #f9c46a;
+  bottom: 0;
   left: 0;
   width: 100%;
   transform: scaleX(0);
   height: 2px;
   transition: all 0.35s ease;
-  background-color: #F9C46A;
-  bottom: -10px;
 }
 .menu-container nav ul li a:hover,
 .menu-container nav ul li a:focus {
@@ -206,6 +205,16 @@ body .menu-button .menu-middlebar {
   opacity: 1;
   transition: all 1s ease 0.3s;
   animation: 1s movedown linear;
+}
+.moveLeftMenu {
+  opacity: 1;
+  transition: all 1s ease 0.3s;
+  animation: 1s moveleft linear;
+}
+.moveRightMenu {
+  opacity: 1;
+  transition: all 1s ease 0.3s;
+  animation: 1s moveright linear;
 }
 .appearMenu {
   opacity: 1;
@@ -331,6 +340,18 @@ body .menu-button .menu-middlebar {
   animation-fill-mode: both;
   animation-delay: 2.5s;
 }
+.RotateMenu {
+  opacity: 1;
+  transition: all 1s ease 0.3s;
+  transform-origin: top;
+  animation: 1s rotating linear;
+}
+.CircleMenu {
+  opacity: 1;
+  transition: all 1s ease 0.3s;
+  transform-origin: top left;
+  animation: 0.8s cycle linear;
+}
 @media (max-width: 768px) {
   body .colorPicker,
   body .animationPicker {
@@ -450,6 +471,86 @@ body .menu-button .menu-middlebar {
   100% {
     opacity: 1;
     margin-top: 0px;
+  }
+}
+@-moz-keyframes moveleft {
+  0% {
+    opacity: 0;
+    margin-left: -100px;
+  }
+  100% {
+    opacity: 1;
+    margin-left: 0px;
+  }
+}
+@-webkit-keyframes moveleft {
+  0% {
+    opacity: 0;
+    margin-left: -100px;
+  }
+  100% {
+    opacity: 1;
+    margin-left: 0px;
+  }
+}
+@-o-keyframes moveleft {
+  0% {
+    opacity: 0;
+    margin-left: -100px;
+  }
+  100% {
+    opacity: 1;
+    margin-left: 0px;
+  }
+}
+@keyframes moveleft {
+  0% {
+    opacity: 0;
+    margin-left: -100px;
+  }
+  100% {
+    opacity: 1;
+    margin-left: 0px;
+  }
+}
+@-moz-keyframes moveright {
+  0% {
+    opacity: 0;
+    margin-right: -100px;
+  }
+  100% {
+    opacity: 1;
+    margin-right: 0px;
+  }
+}
+@-webkit-keyframes moveright {
+  0% {
+    opacity: 0;
+    margin-right: -100px;
+  }
+  100% {
+    opacity: 1;
+    margin-right: 0px;
+  }
+}
+@-o-keyframes moveright {
+  0% {
+    opacity: 0;
+    margin-right: -100px;
+  }
+  100% {
+    opacity: 1;
+    margin-right: 0px;
+  }
+}
+@keyframes moveright {
+  0% {
+    opacity: 0;
+    margin-right: -100px;
+  }
+  100% {
+    opacity: 1;
+    margin-right: 0px;
   }
 }
 @-moz-keyframes appear {
@@ -686,5 +787,109 @@ body .menu-button .menu-middlebar {
   100% {
     opacity: 1;
     margin-top: 0px;
+  }
+}
+@-moz-keyframes rotating {
+  0% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 0;
+    transform: rotate3d(1, 0, 0, -140deg) scale(0.6, 0.6);
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-webkit-keyframes rotating {
+  0% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 0;
+    transform: rotate3d(1, 0, 0, -140deg) scale(0.6, 0.6);
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-o-keyframes rotating {
+  0% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 0;
+    transform: rotate3d(1, 0, 0, -140deg) scale(0.6, 0.6);
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes rotating {
+  0% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 0;
+    transform: rotate3d(1, 0, 0, -140deg) scale(0.6, 0.6);
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-moz-keyframes cycle {
+  0% {
+    opacity: 0;
+  }
+  49% {
+    opacity: 0;
+  }
+  50% {
+    transform: rotate3d(0, 0, 1, 45deg) scale(0.7, 0.7);
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-webkit-keyframes cycle {
+  0% {
+    opacity: 0;
+  }
+  49% {
+    opacity: 0;
+  }
+  50% {
+    transform: rotate3d(0, 0, 1, 45deg) scale(0.7, 0.7);
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-o-keyframes cycle {
+  0% {
+    opacity: 0;
+  }
+  49% {
+    opacity: 0;
+  }
+  50% {
+    transform: rotate3d(0, 0, 1, 45deg) scale(0.7, 0.7);
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes cycle {
+  0% {
+    opacity: 0;
+  }
+  49% {
+    opacity: 0;
+  }
+  50% {
+    transform: rotate3d(0, 0, 1, 45deg) scale(0.7, 0.7);
+  }
+  100% {
+    opacity: 1;
   }
 }

@@ -5,19 +5,9 @@ var Sky = "linear-gradient(135deg, #1493FC 0%, #54B0FD 25%,#81D0FD 50%,#ADE8FD 7
 var Rose = "linear-gradient(135deg, #F44453 0%, #F45B69 25%,#FF8284 50%,#FFB0AA 75%)";
 var Autumn = "linear-gradient(135deg, #E87153 0%, #F7825A 25%,#FFA56D 50%,#FFC77A 75%)";
 var Wine = "linear-gradient(135deg, #841A53 0%, #843B62 25%,#84546E 50%,#84707B 75%)";
-var animationType = "moveUpMenu";
-var colorType = Grass;
+var animationType = "";
+var colorType = "";
 var Davidcount = 0;
-/*===== DavidFullMenu v0.2 =====
-
-  use DavidFullMenu Function to 
-  make your own full screen menu!  
-
-===== DavidBackground sheet =====
-Grass, Chill, Sky, Rose, Autumn, Wine
-===== DavidBackground sheet =====
-moveUpMenu, moveDownMenu, appearMenu,
-popAppearMenu, FadeInMenu , slide    */
 
 // vvvvv modify here vvvvvv //
 
@@ -26,10 +16,10 @@ $('.menu-button').on( "click", function() {
   DavidFullMenu({
       list: [ {title:"add",url:"http://lichin.me"},
               {title:"content",url:"http://codepen.io/lichin-lin"},
-              {title:"you like by",url:""},
+              {title:"you like by",url:"http://lichin.me"},
               {title:"javascript",url:"http://codepen.io/lichin-lin"},
              ],
-      DavidMenuAnimation:"FadeInMenu",
+      DavidMenuAnimation:"RotateMenu",
       DavidBackground: Autumn,
   });
   
@@ -55,14 +45,18 @@ function DavidFullMenu(content){
     else if(content.DavidMenuAnimation == "appearMenu"){animationType = "appearMenu";}
     else if(content.DavidMenuAnimation == "popAppearMenu"){animationType = "popAppearMenu";}
     else if(content.DavidMenuAnimation == "FadeInMenu"){animationType = "FadeInMenu";}
-    else if(content.DavidMenuAnimation == "slide"){animationType = "SlideInMenu";}
+    else if(content.DavidMenuAnimation == "SlideInMenu"){animationType = "SlideInMenu";}
+    else if(content.DavidMenuAnimation == "RotateMenu"){animationType = "RotateMenu";}
+    else if(content.DavidMenuAnimation == "CircleMenu"){animationType = "CircleMenu";}
 
     if(content.DavidBackground == Grass){colorType = Grass;}
     else if(content.DavidBackground == Chill){colorType = Chill;}
     else if(content.DavidBackground == Sky){colorType = Sky;}
     else if(content.DavidBackground == Rose){colorType =  Rose;}
     else if(content.DavidBackground == Autumn){colorType = Autumn;}
+    else if(content.DavidBackground == Cloud){ colorType = Cloud;} 
     else if(content.DavidBackground == Wine){ colorType = Wine;$('.menu-container a').css("color","white");}  
+    else if(content.DavidBackground == Ocean){ colorType = Ocean;$('.menu-container a').css("color","white");} 
 
     $('body').css("overflow","scroll");
     $('.menu-button').css("z-index", 3);

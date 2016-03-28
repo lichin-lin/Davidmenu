@@ -6,8 +6,7 @@
 ===== DavidBackground sheet =====
 Grass, Chill, Sky, Rose, Autumn, Wine
 ===== DavidBackground sheet =====
-moveUpMenu, moveDownMenu, appearMenu,
-popAppearMenu, FadeInMenu , slide    */
+moveUpMenu, moveDownMenu, moveLeftMenu, moveRightMenu,appearMenu, popAppearMenu, FadeInMenu , SlideInMenu, RotateMenu, CircleMenu*/
 
 light-yellow = #F9C46A
 
@@ -20,22 +19,18 @@ body
   max-width 100%
   height 400px
   background-color light-yellow
-  .picker-options
+  .colorPicker,.animationPicker
     position absolute
-    width 135px
+    width 120px
     top 20px
     right 10px
-  .colorPicker,.animationPicker
-    display block
-    margin-bottom 10px
     background-color #50514f
     color white
     outline none
     padding 5px 20px 5px 20px
     border 5px solid #50514f
-    font-size 1em
+    font-size 1.2em
     cursor pointer
-    width 100%
     -webkit-appearance none
     -moz-appearance none
     option
@@ -45,6 +40,8 @@ body
       -webkit-appearance none
       -moz-appearance none
       background none
+  .animationPicker
+    top 70px
   .menu-info
     position relative
     top 40%
@@ -52,24 +49,15 @@ body
     margin 0 auto
     text-align center
     font-size 3em
-    h2
+    p
       margin 0
       color #50514f
       font-family Bad Script
-      font-size 1em
-      line-height: 1.2em
-    p
+    span
       position relative
-      font-size .375em
+      top -45px
+      font-size .5em
       font-family Lato
-      color #50514f
-    a
-      color black
-      font-weight 600
-      font-size 1.25em
-      text-decoration none
-  .menu-info__divider
-    margin-bottom 80px
   .menu-button
     position absolute
     top 20px
@@ -110,64 +98,61 @@ body
       border-radius 5px
       background-color white
       transition all .2s ease
-// ^^^ for demo^^^
-
-// vvv for full menu vvv     
+      
 .menu-container
-	overflow scroll
-	position fixed
-	opacity 0
-	top 0
-	left 0
-	visibility hidden
-	width 100%
-	height 100%
-	transition all .5s ease .35s
-	z-index 2
-	background white
-	&.showOnMenu
-	  opacity 1
-	  visibility visible
-	  transition all .5s ease .15s
-	nav
-	  display flex
-	  flex-direction column
-	  height 100vh
-	  transition all .6s ease
-	  ul
-	    list-style none
-	    text-align center
-	    li
-        display flex
-        justify-content center
-        align-items center
+  overflow scroll
+  position fixed
+  opacity 0
+  top 0
+  left 0
+  visibility hidden
+  width 100%
+  height 100%
+  transition all .5s ease .35s
+  z-index 2
+  background white
+  &.showOnMenu
+    opacity 1
+    visibility visible
+    transition all .5s ease .15s
+  nav
+    display flex
+    flex-direction column
+    height 100vh
+    transition all .6s ease
+    ul
+      list-style none
+      text-align center
+      li
         font-family Raleway
-        height 25vh
+        letter-spacing 10px
+        align-items center
+        line-height 20vh
         a
-	        position relative
-	        cursor pointer
-	        text-decoration none
-	        font-size 2em
-	        color #50514f + 10%
-	        transition all .35s ease
-          line-height 100%
-	        &:before, &:after
-	          content ""
-	          position absolute
-	          background-color light-yellow  
-            bottom -10px
-	          left 0
-	          width 100%
-	          transform scaleX(0)
-	          height 2px
-	          transition all .35s ease
-	        &:hover, &:focus
-	          transition all .3s ease
-	          font-size 2.4em
-	          color #50514f - 30%
-	          &:before, &:after
-	            transition all .5s ease
-	            transform scaleX(1)
+          position relative
+          cursor pointer
+          text-decoration none
+          font-size 2em
+          color #50514f + 10%
+          transition all .35s ease
+          opacity 0
+          &:before, &:after
+            content ""
+            position absolute
+            background-color light-yellow 
+            bottom 0
+            left 0
+            width 100%
+            transform scaleX(0)
+            height 2px
+            transition all .35s ease
+          &:hover, &:focus
+            transition all .3s ease
+            font-size 2.4em
+            color #50514f - 30%
+            &:before, &:after
+              transition all .5s ease
+              transform scaleX(1)
 .moveUpMenu
   opacity 1
   transition all 1s ease .3s
@@ -192,6 +177,28 @@ body
     opacity 1
     margin-top 0px
     
+.moveLeftMenu
+  opacity 1
+  transition all 1s ease .3s
+  animation 1s moveleft linear
+@keyframes moveleft
+  0%
+    opacity 0
+    margin-left -100px
+  100%
+    opacity 1
+    margin-left 0px  
+.moveRightMenu
+  opacity 1
+  transition all 1s ease .3s
+  animation 1s moveright linear
+@keyframes moveright
+  0%
+    opacity 0
+    margin-right -100px
+  100%
+    opacity 1
+    margin-right 0px  
 .appearMenu
   opacity 1
   transition all 1s ease .3s
@@ -265,7 +272,34 @@ body
   100%
     opacity 1
     margin-top 0px
-   
+.RotateMenu
+  opacity 1
+  transition all 1s ease .3s
+  transform-origin top
+  animation 1s rotating linear
+@keyframes rotating
+  0%
+    opacity 0
+  20%
+    opacity 0
+    transform rotate3d(1, 0, 0, -140deg) scale(.6,.6)
+  100%
+    opacity 1
+.CircleMenu
+  opacity 1
+  transition all 1s ease .3s
+  transform-origin top left
+  animation .8s cycle linear
+@keyframes cycle
+  0%
+    opacity 0
+  49%
+    opacity 0
+  50%
+    transform rotate3d(0, 0, 1, 45deg) scale(.7,.7)
+  100%
+    opacity 1
+    
 @media(max-width:768px)
   body
     .colorPicker,.animationPicker

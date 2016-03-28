@@ -44,5 +44,5 @@ $( /*the object to trigger Full menu*/ ).on( "click", function() {
 ```
 
 ## Argument & value
-1.DavidMenuAnimation: ```moveUpMenu```,```moveDownMenu```,```appearMenu```,```popAppearMenu```,```FadeInMenu```,```SlideInMenu```
-2.DavidBackground: ```Grass```,```Chill```,```Sky```,```Rose```,```Autumn```,```Wine```
+1.DavidMenuAnimation: ```moveUpMenu```,```moveDownMenu```,```appearMenu```,```popAppearMenu```,```FadeInMenu```,```SlideInMenu```,```RotateMenu```,```CircleMenu```
+2.DavidBackground: ```Grass```,```Chill```,```Sky```,```Rose```,```Autumn```,```Wine```,```Cloud```,```Ocean```
